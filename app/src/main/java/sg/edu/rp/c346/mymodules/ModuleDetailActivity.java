@@ -3,21 +3,25 @@ package sg.edu.rp.c346.mymodules;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ModuleDetailActivity extends AppCompatActivity {
 
     TextView tv;
     String text;
+    Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module_detail);
 
         tv = findViewById(R.id.textView);
+        btn = findViewById(R.id.btn);
 
         Intent receivedIntent = getIntent();
-        int mod = receivedIntent.getIntExtra("mod",0);
+        final int mod = receivedIntent.getIntExtra("mod",0);
         if (mod == 1){
             text = "Module Code : C346\n" +
                     "Module Name : Android Programming\n" +
@@ -40,5 +44,16 @@ public class ModuleDetailActivity extends AppCompatActivity {
         }
         tv.setText(text);
 
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = getIntent();
+                intent.putExtra("result",mod);
+                setResult(RESULT_OK,intent);
+                finish();
+            }
+        });
+
     }
+
 }
