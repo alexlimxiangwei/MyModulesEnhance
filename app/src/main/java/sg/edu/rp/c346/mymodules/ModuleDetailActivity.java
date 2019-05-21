@@ -52,6 +52,7 @@ public class ModuleDetailActivity extends AppCompatActivity {
                 setResult(RESULT_OK,intent);
                 finish();
             }
+
         });
 
     }
