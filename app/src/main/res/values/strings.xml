@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Modules</string>
+    <string name="btnModule1">C346 Android Programming</string>
+    <string name="btnModule2">C382 IT Service Delivery</string>
+</resources>
